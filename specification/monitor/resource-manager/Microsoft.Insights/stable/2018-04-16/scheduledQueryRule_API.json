@@ -585,6 +585,16 @@
     "LogSearchRule": {
       "description": "Log Search Rule Definition",
       "properties": {
+        "createdWithApiVersion": {
+          "type": "string",
+          "readOnly": true,
+          "description": "The api-version used when creating this alert rule"
+        },
+        "isLegacyLogAnalyticsRule": {
+          "type": "boolean",
+          "readOnly": true,
+          "description": "True if alert rule is legacy Log Analytic rule"
+        },
         "description": {
           "type": "string",
           "description": "The description of the Log Search rule."
@@ -592,6 +602,11 @@
         "displayName": {
           "type": "string",
           "description": "The display name of the alert rule"
+        },
+        "autoMitigate": {
+          "type": "boolean",
+          "default": false,
+          "description": "The flag that indicates whether the alert should be automatically resolved or not. The default is true."
         },
         "enabled": {
           "type": "string",
