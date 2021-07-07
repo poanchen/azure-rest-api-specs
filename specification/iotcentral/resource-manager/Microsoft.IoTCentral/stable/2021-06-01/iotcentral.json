@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "2018-09-01",
+    "version": "2021-06-01",
     "title": "IotCentralClient",
     "description": "Use this API to manage IoT Central Applications in your Azure subscription."
   },
@@ -455,7 +455,7 @@
         "tags": [
           "Operations"
         ],
-        "description": "Lists all of the available IoT Central application REST API operations.",
+        "description": "Lists all of the available IoT Central Resource Provider operations.",
         "operationId": "Operations_List",
         "x-ms-examples": {
           "Operations_List": {
@@ -513,8 +513,25 @@
             "create",
             "read"
           ]
+        },
+        "state": {
+          "description": "The current state of the application.",
+          "$ref": "#/definitions/AppState"
         }
       }
+    },
+    "AppState": {
+      "description": "The current state of the application.",
+      "type": "string",
+      "enum": [
+        "created",
+        "suspended"
+      ],
+      "x-ms-enum": {
+        "name": "AppState",
+        "modelAsString": true
+      },
+      "readOnly": true
     },
     "AppSkuInfo": {
       "description": "Information about the SKU of the IoT Central application.",
@@ -523,8 +540,6 @@
         "name": {
           "description": "The name of the SKU.",
           "enum": [
-            "F1",
-            "S1",
             "ST0",
             "ST1",
             "ST2"
